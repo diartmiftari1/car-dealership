@@ -1,4 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+}
 *{
     margin:0;
     padding: 0;
 }
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/img/banner_1.jpg");
+    height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+     background-size: cover; 
+    position: relative;
+  }
+  
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .banner_button a{
+    background-color: #181818;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+  .banner_button{
+    margin-top: 30px;
+    
+  }
+
+  .hero-text h1{
+    margin-bottom: 20px;
+  
+}
+  /* About Us Section */
+
+  .wrapper{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+   
+  }
+  .about_text , .about_img{
+    width: 50%;
+   
+
+  }
+  .about_img img{
+    width: 100%;
+
+  }
+  .about_text{
+ margin: auto auto; 
+}
+.about{
+    margin: 50px 0;
+}
+

@@ -10,7 +10,11 @@
 body{
   font-family: 'Roboto', sans-serif;
 }
+.title{
+  text-align: center;
+  margin-bottom:30px;
 
+}
 /* Typography */
 h1 {
   font-size: 50px;
@@ -213,7 +217,7 @@ form input[type="submit"] {
 .about_text h2{
   margin-bottom: 20px;
 }
-.about{
+.about, .services{
     padding: 50px 0;
     background-color: #f2f2f2;
 }
@@ -298,4 +302,101 @@ button.login_btn{
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
+}
+
+/* Services */
+
+.boxes{
+  display: grid;
+  grid-template-columns: auto auto auto  auto;
+  justify-content: space-between;
+  text-align: center;
+  gap: 0 10px;
+}
+.service_box_icon img{
+  width: 50px;
+  height: auto;
+  text-align: center;
+  margin-left: 50%;
+  transform: translateX(-1%);
+  margin-bottom: 20px;
+
+}
+.service_text h4{
+  font-size: 26px;
+  font-weight: bold;
+
+}
+/* INVENTORY */
+
+ul.spec_list li{
+  list-style: none;
+}
+
+ul.spec_list{
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2 ;
+  column-gap: 20px;
+}
+
+.invetory_boxes{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  /* text-align: center; */
+  gap: 0 10px;
+  margin-top: -50px;
+  z-index: 99;
+}
+.car_img img{
+width: 100%;
+
+}
+.inventory_image{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),  url(./img/dream_car.jpg);
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+   background-size: cover; 
+  position: relative;
+}
+.footer{
+  background-color: #181818;
+  padding: 50px 0;
+  text-align: center;
+
+}
+.socailmedia_icons{
+  width: 100%;
+
+}
+.socailmedia_icons i{
+  font-size: 30px;
+  margin: 5px;
+  color: red;
+
+
+}
+.wrapper_footer{
+  width: 80%;
+  margin: 0 auto;
+}
+
+ul.footer_lists li {
+  display: inline;
+  list-style: none;
+  margin: 5px;
+
+}
+
+ul.footer_lists li a{
+  color:white;
+  text-decoration: none;
+}
+span.span_footer{
+  color: grey;
+  margin-top: 50px;
 }

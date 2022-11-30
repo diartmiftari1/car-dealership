@@ -6,10 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="style/media.css">
 </head>
 <body>
-    <!-- BANNER -->
+
+     <!-----         Menu         ------>
+     <nav class="underline_nav">
+        <input id="nav-toggle" type="checkbox">
+       <a href="index.html"> <div class="logo">Logo Goes Here</div></a>
+        <ul class="links">
+            <li><a href="#">Home</a></li>   
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+        
+
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+    <!-- BANNER --> 
     <div class="banner">
         <div class="hero-image">
             <div class="hero-text">
@@ -86,7 +109,7 @@
         </div>
     </div>
     <!-- INVENTORY -->
-    <div class="inventory">
+    <!-- <div class="inventory">
         <div class="banner">
             <div class="inventory_image">
                 <div class="hero-text">
@@ -210,21 +233,41 @@
                 
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- CONTACT -->
     <div class="contact_form">
-        <div class="wrapper">
-            <div class="contact_title">
+        <div class="wrapper_contact">
+            <div class="contact_title title">
                 <h2>CONTACT US</h2>
             </div>
         <div class="contact_us">
-            <i class="fa-solid fa-phone"></i>
-            <a href="tel:04412345678" >04412345678</a>
-            <i class="fa-solid fa-phone"></i>
-            <a href="mailto:example@gmail.com" >example@gmail.com</a>
-            
+            <ul class="contact_info">
+                <li><a href="https://goo.gl/maps/fk35kuR2UmJ48J897"><i class="fa-solid fa-location-dot"></i>4516 Horizon Circle, Kosovo</a></li>
+                <li><a href="tel:+38344123456"><i class="fa-solid fa-phone"></i>+38344123456</a></li>
+                <li><a href="mailto:example@gmail.com"><i class="fa-solid fa-envelope"></i>example@gmail.com</a></li>
+                <li><a href="https://Instagram.com"><i class="fa-brands fa-instagram"></i>Brand Name Goes Here</a></li>
+            </ul>
 
-            
+            <div class="form_contact_section">
+                <form action="/action_page.php">
+          
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Enter Your Name" id="username" required autocomplete="on">
+                    </div>
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Enter email" id="email" required autocomplete="on">
+                    </div>
+                    <div class="form-group">  
+                      <input type="tel" class="form-control" placeholder="Enter Mobile Number" id="mobile" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" rows="3" id="comment" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center form-button">
+                    <button type="submit" class="btn submit_button">Submit</button>
+                  </div>
+                  </form>
+            </div>
         </div>            
         </div>
 

@@ -5,9 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="style/media.css">
 </head>
 <body>
+     <!-----         Menu         ------>
+     <nav>
+        <input id="nav-toggle" type="checkbox">
+       <a href="index.html"> <div class="logo">Logo Goes Here</div></a>
+        <ul class="links">
+            <li><a href="./index.html">Home</a></li>   
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+        
+
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
     <div class="login_page">
         <div class="login_page_banner">
             <img src="./img/login.jpg" alt="n Login image">
@@ -30,7 +52,7 @@
     <button type="submit" class="login_btn">Login</button>
 
     <div class="container signin">
-        <p>Don't have an account <a href="./register.html">Register</a>.</p>
+        <p>Don't have an account? <a href="./register.html">Register</a>.</p>
       </div>
                 </form>
             </div>

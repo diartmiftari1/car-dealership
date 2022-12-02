@@ -12,9 +12,20 @@ body{
 }
 .title{
   text-align: center;
-  margin: 0 auto 40px auto;
-  width: 80%;
-
+  margin-bottom: 60px;
+}
+.submit_button{
+  background-color: #181818;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
 }
 /* Typography */
 h1 {
@@ -140,7 +151,6 @@ form input {
 form textarea {
   display: block;
   width: 100%;
-  min-height: 350px;
   margin: 0 0 20px 0;
   padding: 18px 15px 15px 18px;
   resize: none;
@@ -157,6 +167,7 @@ form textarea {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  font-family: 'Roboto', sans-serif;
 }
 form input[type="submit"] {
   width: auto;
@@ -307,7 +318,9 @@ nav.underline_nav ul li a:hover:after {
   .wrapper{
     width: 80%;
     margin: 0 auto;
-   
+  }
+  .about_warapper{
+    display: flex;
   }
   .about_text , .about_img{
     width: 50%;
@@ -323,7 +336,7 @@ nav.underline_nav ul li a:hover:after {
 .about_text h2{
   margin-bottom: 20px;
 }
-.about, .services{
+.about, .services, .inventory, .contact_form{
     padding: 50px 0;
     background-color: #f2f2f2;
 }
@@ -340,7 +353,7 @@ nav.underline_nav ul li a:hover:after {
   position: relative;
 }
 .login_box{
-  min-width: 550px;
+  width: 40%;
   margin: 50px auto 0 auto;
   background-color: white;
   border-radius: 3px;
@@ -461,7 +474,8 @@ width: 100%;
 }
 
 .car_box{
- z-index: 99;
+ z-index: 2;
+ position: relative;
 }
 .inventory_image{
   background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),  url(./img/dream_car.jpg);
@@ -522,6 +536,9 @@ span.span_footer{
   width: 80%;
   margin: 0 auto;
 }
+.contact_info{
+  margin: auto !important;
+}
 ul.contact_info li a{
   margin-bottom: 45px;
   display: flex;
@@ -548,6 +565,9 @@ ul.contact_info li{
 }
 .form_contact_section input{
   margin-bottom: 10px;
+}
+.form-group input, .form-group textarea{
+  padding: 10px !important;
 }
 
 /* ABOUT US PAGE */

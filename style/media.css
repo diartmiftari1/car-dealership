@@ -45,3 +45,63 @@
     }
     
   }
+
+  @media screen and (max-width: 768px) {  
+    .about_warapper{
+      flex-direction: column;
+    }
+    .about_text, .about_img{
+      width: 100%;
+    }
+    .boxes{
+      grid-template-columns: auto auto;
+      gap: 15px ;
+    }
+    .invetory_boxes , .contact_us{
+      grid-template-columns: auto;
+    }
+    .contact_info{
+      margin: unset !important;
+    }
+    .footer_grid{
+      grid-template-columns: auto ;
+      gap: 20px 0;
+    }
+    .wrapper_single_car{
+      flex-direction: column;
+    }
+    .singel_car_images{
+      width: 100%;
+    }
+    .single_car_info{
+      width: 100%;
+      margin: 50px 0;
+    }
+    .ourteam_img{
+      grid-template-columns: auto ;
+    }
+    .about_page_title{
+      width: 100%;
+    }
+    .service_page .boxes{
+      grid-template-columns: auto;
+      gap: 70px;
+    }
+    .invetory_boxes_page{
+      grid-template-columns: auto;
+    }
+    .form_contact_section{
+      width: 100%;
+    }
+    .login_box{
+      width: 100%;
+      margin: 50px auto;
+    }
+
+  }
+
+  @media screen and (max-width: 425px){
+    .wrapper , .wrapper_single_car{
+      width: 90%;
+    }
+  }

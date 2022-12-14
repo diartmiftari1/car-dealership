@@ -37,36 +37,36 @@
         </div>
         <div class="wrapper">
             <div class="login_box">
-                <form action="">
+                <form class="login_form" action="home.html" method="post" name="form" onsubmit="return validatedRegister()">
                     <h3>Create an account</h3>
-                    <div class="text-field">
-                        <input type="text" id="name" name="name" >
-                        <label for="name">Name</label>
-                        <small class="form-text text-danger feedback"></small>
+                    <div class="input_wrapper">
+                        <h4>Your Name</h4>
+                        <input autocomplete="off" type="text" name="name">
+                        <div id="name_error">Please fill up your Name</div>
                     </div>
-                    <div class="text-field">
-                        <input type="text" name="email" id="email" >
-                        <label for="email">Email</label>
-                        <small class="form-text text-danger feedback"></small>
+                    <div class="input_wrapper">
+                        <h4>Email</h4>
+                        <input autocomplete="off" type="text" name="email">
+                        <div id="email_error">Please fill up your Email</div>
                     </div>
         
-                    <div class="text-field">
-                        <input type="password" id="password" name="password" >
-                        <label for="password">Password</label>
-                        <small class="form-text text-danger feedback"></small>
+                    <div class="input_wrapper">
+                        <h4>Password</h4>
+                        <input type="password" name="password">
+                    <div id="pass_error">Please fill up your Password</div>
                     </div>
-                    <div class="text-field">
+                    <div class="input_wrapper">
+                        <h4>Confirm Password</h4>
                         <input type="password" id="confirmPassword" name="confirmPassword">
                         <label for="confirmPassword">Confirm Password</label>
-                        <small class="form-text text-danger feedback"></small>
                     </div>
-                    <div class="custom-control custom-switch mb-3">
+                    <!-- <div class="custom-control custom-switch mb-3">
                         <input type="checkbox" class="custom-control-input" id="showPassword" name="showPassword">
                         <span class="custom-control-label" for="showPassword">Show password</span>
-                      </div>
+                      </div> -->
                  
 
-                      <button type="submit" class="btn btn-outline-dark login_btn" name="btn" disabled>Register</button>
+                      <button type="submit" class="login_btn">Register</button>
 
     <div class="container signin">
         <p>Have an account. <a href="./login.html">Login</a> instead.</p>

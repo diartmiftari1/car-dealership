@@ -28,6 +28,80 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+//Validating Login Form
+var names = document.forms['form']['name'];
+var email = document.forms['form']['email'];
+var password = document.forms['form']['password'];
+
+var name_error = document.getElementById('name_error');
+var email_error = document.getElementById('email_error');
+var pass_error = document.getElementById('pass_error');
+
+names.addEventListener('textInput', name_Verify);
+email.addEventListener('textInput', email_Verify);
+password.addEventListener('textInput', pass_Verify);
+
+function validatedRegister(){
+  if (names.value.length < 3) {
+		names.style.border = "1px solid red";
+		name_error.style.display = "block";
+		names.focus();
+		return false;
+	}
+	if (email.value.length < 9) {
+		email.style.border = "1px solid red";
+		email_error.style.display = "block";
+		email.focus();
+		return false;
+	}
+	if (password.value.length < 6) {
+		password.style.border = "2px solid red";
+		pass_error.style.display = "block";
+		password.focus();
+		return false;
+	}
+}
+
+function validated(){
+	if (email.value.length < 9) {
+		email.style.border = "1px solid red";
+		email_error.style.display = "block";
+		email.focus();
+		return false;
+	}
+	if (password.value.length < 6) {
+		password.style.border = "2px solid red";
+		pass_error.style.display = "block";
+		password.focus();
+		return false;
+	}
+}
+function email_Verify(){
+	if (email.value.length >= 8) {
+		email.style.border = "2px solid silver";
+		email_error.style.display = "none";
+		return true;
+	}
+} 
+function name_Verify(){
+  if (names.value.length >= 8) {
+		names.style.border = "2px solid silver";
+		name_error.style.display = "none";
+		return true;
+	}
+}
+
+
+function pass_Verify(){
+	if (password.value.length >= 5) {
+		password.style.border = "1px solid silver";
+		pass_error.style.display = "none";
+		return true;
+	}
+}
+
+
+
 // const [form] = document.forms;
 // const [
 //   nameFeedback,

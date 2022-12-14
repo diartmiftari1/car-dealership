@@ -417,6 +417,12 @@ nav.underline_nav ul li a:hover:after {
 
 
 /* LOGIN PAGE */
+.input_wrapper h4{
+  margin-bottom: 10px;
+}
+.input_wrapper{
+  margin-bottom: 20px;
+}
 .login_page_banner img{
   width: 100%;
   position: relative;
@@ -494,12 +500,29 @@ button.login_btn{
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 input.custom-control-input{
   width: auto !important;
   height: auto !important;
   margin-bottom: 30px;
+}
+
+/* Validation On Login Form */
+#email_error,
+#pass_error,
+#name_error{
+	margin-top: 5px;
+	width: 100%;
+	font-size: 18px;
+	color: #C62828;
+	background: rgba(255,0,0,0.1);
+	text-align: center;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid #EF9A9A;
+	display: none;
 }
 
 /* Services */

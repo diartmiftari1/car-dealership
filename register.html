@@ -37,7 +37,7 @@
         </div>
         <div class="wrapper">
             <div class="login_box">
-                <form class="login_form" action="home.html" method="post" name="form" onsubmit="return validatedRegister()">
+                <form class="login_form" method="post" name="form" onsubmit="return validatedRegister()">
                     <h3>Create an account</h3>
                     <div class="input_wrapper">
                         <h4>Your Name</h4>
@@ -58,7 +58,7 @@
                     <div class="input_wrapper">
                         <h4>Confirm Password</h4>
                         <input type="password" id="confirmPassword" name="confirmPassword">
-                        <label for="confirmPassword">Confirm Password</label>
+                        <div id="confirmPass_error">Please check your password again</div>
                     </div>
                     <!-- <div class="custom-control custom-switch mb-3">
                         <input type="checkbox" class="custom-control-input" id="showPassword" name="showPassword">

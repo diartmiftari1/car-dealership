@@ -73,22 +73,22 @@
             </ul>
 
             <div class="form_contact_section">
-                <form id="contact_form" action="/action_page.php">
+                <form id="contact_form" name="form" onsubmit="return validateContactForm()">
           
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Enter Your Name" id="username" required autocomplete="on">
+                      <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control" placeholder="Enter email" id="email" required autocomplete="on">
+                      <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" autocomplete="on">
                     </div>
                     <div class="form-group">  
-                      <input type="tel" class="form-control" placeholder="Enter Mobile Number" id="mobile" autocomplete="off">
+                      <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" id="mobile" autocomplete="off">
                     </div>
                     <div class="form-group">
                       <textarea class="form-control" rows="3" id="comment" placeholder="Enter Your Message"></textarea>
                     </div>
                     <div class="d-flex justify-content-center form-button">
-                    <input type="submit" value="Submit" class=" submit_buttonn"/>
+                    <input type="submit" value="Submit" class="submit_buttonn"/>
                   </div>
                   
                   </form>

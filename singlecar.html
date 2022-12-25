@@ -63,17 +63,12 @@
                       <img src="./img/Screenshot_1.png" style="width:100%">
                     </div>
                     
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
+                    <a class="prev" onclick="previousSlide()">&#10094;</a>
+                    <a class="next" onclick="nextSlide()">&#10095;</a>
                     
                     </div>
                     <br>
                     
-                    <div style="text-align:center">
-                      <span class="dot" onclick="currentSlide(1)"></span> 
-                      <span class="dot" onclick="currentSlide(2)"></span> 
-                      <span class="dot" onclick="currentSlide(3)"></span> 
-                    </div>
                 
             </div>
             <div class="single_car_info">
@@ -117,19 +112,33 @@
                 </ul>
             </div>
         </div>
-        <div class="wrapper">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, aut fuga? Ea itaque incidunt
-                 labore obcaecati doloremque, non recusandae porro quis est adipisci veritatis mollitia soluta, eaque
-                  at quia voluptatibus voluptate omnis. Fugiat blanditiis, molestias quibusdam numquam voluptatem repellendus
-                   ipsum sint. Quaerat dolores reprehenderit officia accusantium exercitationem eos, asperiores minima labore 
-                   fugit voluptatem laborum, quibusdam deleniti animi delectus omnis repellendus quia dicta soluta iure assumenda 
-                   sed dolorem. Consectetur exercitationem eos mollitia, numquam nostrum ratione vel laboriosam, maxime excepturi 
-                   id iste cumque a laborum odio aut voluptatibus recusandae. Quis, pariatur placeat doloremque accusantium quo doloribus
-                    perferendis odit commodi dolorum? Reiciendis voluptatibus, cum architecto suscipit natus molestias, officiis veritatis 
-                    laborum nemo obcaecati voluptatem necessitatibus ipsam perspiciatis neque, mollitia impedit sunt qui aspernatur ab vel 
-                        recusandae. Nemo dolore modi, tempora omnis culpa unde error. Eius at dolore
-                 possimus maiores! Exercitationem obcaecati inventore, ducimus quaerat porro, unde impedit placeat, atque omnis tenetur magnam vitae.</p>
-        </div>
+        <div class="wrapper_single_car">
+            <div class="singel_car_images">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa odit numquam sed ratione itaque, quasi odio 
+                    harum voluptate, repellat temporibus et dolorum
+                     sapiente accusantium officia vero esse eum officiis quo alias quibusdam fugiat molestiae iure
+                      laboriosam quas. Nam, repudiandae ullam.
+                </p>
+                <div class="car_specs">
+                    <ul class="car_specs_list_right car_spec">
+                      <li><i class="fa fa-check"></i>ABS</li>
+                      <li><i class="fa fa-check"></i>Adaptive headlights</li>
+                      <li><i class="fa fa-check"></i>Distance cruise control</li>
+                      <li><i class="fa fa-check"></i>ESP</li>
+                      <li><i class="fa fa-check"></i>Leather steering wheel</li>
+                      <li><i class="fa fa-check"></i>Power steering</li>
+
+                      <li><i class="fa fa-check"></i>Distance warning</li>
+                      <li><i class="fa fa-check"></i>Alarm system</li>
+                      <li><i class="fa fa-check"></i>Ambient lighting</li>
+                      <li><i class="fa fa-check"></i>Board computer</li>
+                      <li><i class="fa fa-check"></i>Fog lights</li>
+                      <li><i class="fa fa-check"></i>LED headlights</li>
+                     </ul>
+               </div>
+            </div>
+            
+                      </div>
     </div>
 
 
@@ -178,6 +187,39 @@
            
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+// SLIDER SINGLE CAR
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function nextSlide() {
+        showSlides(slideIndex += 1);
+    }
+
+    function previousSlide() {
+        showSlides(slideIndex -= 1);  
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        
+        if (n > slides.length) {
+        slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+
+        for (let slide of slides) {
+            slide.style.display = "none";
+        }   
+        slides[slideIndex - 1].style.display = "block"; 
+    }
+    </script>
 </body>
 </html>

@@ -142,7 +142,7 @@ form input {
   border: 1px solid #00182E;
   background: 0 none;
   outline: none;
-  color:#A5A5A5;
+  color:#181818;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -286,7 +286,7 @@ nav.underline_nav ul li a:hover:after {
   margin-top: 100px;
 }
 .hero_section{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/img/banner_1.jpg");
+  background-image:  url("/img/banner_1.jpg");
   height: 50vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -510,9 +510,7 @@ input.custom-control-input{
 }
 
 /* Validation On Login Form */
-#email_error,
-#pass_error,
-#name_error{
+#email_error, #pass_error, #name_error, #confirmPass_error, #pass_error_login, #email_error_login{
 	margin-top: 5px;
 	width: 100%;
 	font-size: 18px;
@@ -553,13 +551,21 @@ ul.spec_list li{
   margin-bottom: 10px;
 }
 
-ul.spec_list{
+ul.spec_list, ul.car_spec{
   -moz-column-count: 2;
   -moz-column-gap: 20px;
   -webkit-column-count: 2;
   -webkit-column-gap: 20px;
   column-count: 2 ;
   column-gap: 20px;
+}
+ul.car_spec li{
+  list-style: none;
+  margin-left: 10px;
+}
+i.fa.fa-check::before{
+  color: #f5cb5c;
+  margin-right: 10px;
 }
 
 .invetory_boxes{

@@ -141,9 +141,4 @@ function validateContactForm(){
         alert("successfully sent :)");
         return true;
       }
-
-
-  alert("phone:"+phoneResult + ", postal code: "+postalResult);
-  
-  return false;
     } 

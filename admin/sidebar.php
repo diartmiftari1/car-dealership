@@ -10,8 +10,8 @@
     <title>Car Dealership</title>
 </head>
 <body>
-    
-<input type="checkbox" id="navcheck" role="button" title="menu">
+    <div class="sidebar_wrapper">
+    <input type="checkbox" id="navcheck" role="button" title="menu">
 <label for="navcheck" aria-hidden="true" title="menu">
 	<span class="burger">
 		<span class="bar">
@@ -21,14 +21,6 @@
 </label>
 <nav id="menu">
 	<a href="#">Mail</a>
-	<a href="#">Add Car</a>
-	<a href="#">Magnam.</a>
-	<a href="#">Ipsum.</a>
-	<a href="#">Voluptatem.</a>
-	<a href="#">Quibusdam.</a>
+	<a href="./add_cars_admin.php">Add Car</a>
 </nav>
-
-</div>
-<h1>testttttttttttttttttttt</h1>
-<h1>testttttttttttttttttttt</h1>
-
+    </div>

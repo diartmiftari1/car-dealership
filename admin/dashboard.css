@@ -1,0 +1,333 @@
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .title{
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+.submit_button{
+    background-color: #181818;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }
+  /* Typography */
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    color:#FFFFFF;
+  
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 36px;
+    margin: 0 0 15px 0;
+    padding: 0;
+    
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    
+  }
+  h4 {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+  h5 {
+    font-size: 9px;
+    line-height: 17px;
+    margin: 0 ;
+    padding: 0 ;
+  }
+  h6 {
+    font-size: 11px;
+    line-height: 28px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding: 0 ;
+  }
+  p {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0 0 20px 0;
+    padding: 0;
+  
+  }
+  a {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: inherit;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+  
+  ul li, ol li {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    margin: 0 ;
+    padding: 0;
+  }
+  a:hover, a:focus {
+    text-decoration: none;
+    outline-offset: 0px;
+    outline: none;
+  }
+  img, input {
+    border: 0 none;
+    outline: 0 none;
+  }
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  nav ul li a,
+  nav ul li a:after,
+  nav ul li a:before {
+    transition: all .5s;
+  }
+
+form {
+    width: 100%;
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  label {
+    display: block;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+  form input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    margin-bottom:  20px;
+    padding-left: 18px;
+    border: 1px solid #00182E;
+    background: 0 none;
+    outline: none;
+    color:#181818;
+  }
+  form textarea {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 18px 15px 15px 18px;
+    resize: none;
+    font-size: 16px;
+    background: 0 none;
+    border: 1px solid #00182E;
+    color:#A5A5A5;
+    outline: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.sidebar_wrapper input {
+    position: fixed;
+    opacity: 0;
+}
+.sidebar_wrapper label {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+.sidebar_wrapper label::before {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 38, 57, .75);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.sidebar_wrapper label .burger {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 3;
+    width: 2em;
+    height: 2em;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.sidebar_wrapper label .burger::before, .sidebar_wrapper label .burger .bar, .sidebar_wrapper label .burger::after {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 12%;
+    background: #ccc;
+    content: '';
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.sidebar_wrapper label .burger .bar {
+    top: 44%;
+}
+.sidebar_wrapper label .burger::before {
+    top: 0;
+    transform-origin: top left;
+}
+.sidebar_wrapper label .burger::after {
+    bottom: 0;
+    transform-origin: bottom left;
+}
+.sidebar_wrapper input:focus + label .burger, .sidebar_wrapper label:hover .burger {
+    opacity: 0.75;
+}
+.sidebar_wrapper nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translate3d(0, 0, 0);
+   /* material acceleration */
+    transform: translateX(-100%);
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.sidebar_wrapper nav::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 250px;
+    background: #181818;
+    content: '';
+    transform: skewX(15deg) translateX(-100%);
+    transform-origin: bottom left;
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.sidebar_wrapper nav a {
+    margin: 0.5em 0;
+    padding: 0.2em 2em;
+    font-size: 1.5em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transform: translateX(-100%);
+    transition: color 0.15s, transform 0.5s;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.sidebar_wrapper nav a:nth-child(1) {
+    transition-delay: 0s, 100ms;
+}
+.sidebar_wrapper nav a:nth-child(2) {
+    transition-delay: 0s, 150ms;
+}
+.sidebar_wrapper nav a:nth-child(3) {
+    transition-delay: 0s, 200ms;
+}
+.sidebar_wrapper nav a:nth-child(4) {
+    transition-delay: 0s, 250ms;
+}
+.sidebar_wrapper nav a:nth-child(5) {
+    transition-delay: 0s, 300ms;
+}
+.sidebar_wrapper nav a:nth-child(6) {
+    transition-delay: 0s, 350ms;
+}
+.sidebar_wrapper nav a:hover, .sidebar_wrapper nav a:focus {
+    color: black;
+}
+main {
+    overflow: hidden;
+}
+
+.sidebar_wrapper [id="navcheck"]:checked + label::before {
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar_wrapper [id="navcheck"]:checked + label .burger::before, .sidebar_wrapper [id="navcheck"]:checked + label .burger::after {
+    width: 141.42%;
+}
+.sidebar_wrapper [id="navcheck"]:checked + label .burger::before {
+    transform: rotate(45deg) translateY(-50%);
+}
+.sidebar_wrapper [id="navcheck"]:checked + label .burger::after {
+    transform: rotate(-45deg) translateY(50%);
+}
+.sidebar_wrapper [id="navcheck"]:checked + label .burger .bar {
+    transform: scale(0.1);
+}
+.sidebar_wrapper [id="navcheck"]:checked ~ nav {
+    transform: translateX(0);
+}
+.sidebar_wrapper [id="navcheck"]:checked ~ nav::before {
+    transform: skewX(0deg) translateX(0);
+}
+.sidebar_wrapper [id="navcheck"]:checked ~ nav a {
+    transform: translateX(0);
+}
+.sidebar_wrapper [id="navcheck"]:checked ~ main .content {
+    transform: translateX(3em);
+    transform-origin: left center;
+    filter: blur(2px);
+}
+/* helper */
+.sidebar_wrapper .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.sidebar_wrapper{
+    margin-bottom: 80px;
+}
+
+/* ADD CARS FORM */
+input#transmission{
+    width: unset;
+    display: unset;
+    height: unset   ;
+}
+.transmission label{
+    display: inline-block;
+}

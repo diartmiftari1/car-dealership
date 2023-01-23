@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +10,17 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="style/media.css">
 </head>
+
 <body>
 
-     <!-----         Menu         ------>
-     <nav class="underline_nav">
+    <!-----         Menu         ------>
+    <nav class="underline_nav">
         <input id="nav-toggle" type="checkbox">
-       <a href="index.html"> <div class="logo">Logo Goes Here</div></a>
+        <a href="index.html">
+            <div class="logo">Logo Goes Here</div>
+        </a>
         <ul class="links">
-            <li><a href="#">Home</a></li>   
+            <li><a href="#">Home</a></li>
             <li><a href="about_us.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="inventory.html">Inventory</a></li>
@@ -24,7 +28,7 @@
             <li><a href="login.html">Login</a></li>
             <li><a href="register.html">Register</a></li>
         </ul>
-        
+
 
         <label for="nav-toggle" class="icon-burger">
             <div class="line"></div>

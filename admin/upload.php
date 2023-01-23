@@ -1,81 +1,52 @@
 <?php 
+// Include the database configuration file 
+include '../db_connection.php'; 
 
-if (isset($_POST['upload'])) {
+$images = array();
+$type = array();
+$size = array();
+if(isset($_POST['upload'])) 
+   {
+   if(isset($_FILES['fileUpload']))
+      {
+        //  $postname = $_SESSION['user_id'];
+         $postname = $_POST['postname'];
+         $marke = $_POST['marke'];
+         $model = $_POST['model'];
+         $price = $_POST['price'];
+         $year = $_POST['year'];
+         $transission = $_POST['transission'];
+         $displacement = $_POST['displacement'];
+         $body_style = $_POST['body_style'];
+         $mileage = $_POST['mileage'];
+         $fuel_type = $_POST['fuel_type'];
+        $file_names = array();
 
-	# database connection file
-	include 'db.conn.php';
+        foreach($_FILES['fileUpload']['tmp_name'] as $key => $tmp_name){
+            // get the file name
+            $file_name = $_FILES['fileUpload']['name'][$key];
+            // move the file to the desired location
+            move_uploaded_file($tmp_name, "./upload/$file_name");
+            // add the file name to the array
+            array_push($file_names, $file_name);
+        }
+        // convert the array of file names to a JSON string
+        $file_names_json = json_encode($file_names);
+        var_dump( $file_names_json);
+        // insert the JSON string into the database
+     
+      
 
-	$images = $_FILES['images'];
+$query = mysqli_query($conn, "INSERT INTO posts (postname, marke, model, price, year, transission, displacement, body_style, mileage, fuel_type, file_name) 
+VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displacement','$body_style',' $mileage','$fuel_type','$file_names_json')");
 
-	# Number of images
-    $num_of_imgs = count($images['name']);
-
-    for ($i=0; $i < $num_of_imgs; $i++) { 
-    	
-    	# get the image info and store them in var
-    	$image_name = $images['name'][$i];
-    	$tmp_name   = $images['tmp_name'][$i];
-    	$error      = $images['error'][$i];
-
-    	# if there is not error occurred while uploading
-    	if ($error === 0) {
-    		
-    		# get image extension store it in var
-    		$img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
-
-    		/** convert the image extension into lower case and store it in var **/
-			$img_ex_lc = strtolower($img_ex);
-            
-            /** crating array that stores allowed	to upload image extensions.	**/
-			$allowed_exs = array('jpg', 'jpeg', 'png');
-
-
-			/** check if the the image extension 	is present in $allowed_exs array	**/
-
-			if (in_array($img_ex_lc, $allowed_exs)) {
-				/**  renaming the image name with 			 with random string		**/
-				$new_img_name = uniqid('IMG-', true).'.'.$img_ex_lc;
-                
-                # crating upload path on root directory
-                $img_upload_path = 'uploads/'.$new_img_name;
-
-                # inserting imge name into database
-                
-                $sql  = "INSERT INTO images (img_name)
-                         VALUES (?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->execute([$new_img_name]);
-
-                # move uploaded image to 'uploads' folder
-                move_uploaded_file($tmp_name, $img_upload_path);
-
-		    	# redirect to 'index.php'
-	            header("Location: index.php");
-
-
-			}else {
-				# error message
-    	     	$em = "You can't upload files of this type";
-
-	    		/*
-		    	redirect to 'index.php' and 
-		    	passing the error message
-		        */
-
-	            header("Location: index.php?error=$em");
-			}
-
-   
-    	}else {
-    		# error message
-    		$em = "Unknown Error Occurred while uploading";
-
-    		/*
-	    	redirect to 'index.php' and 
-	    	passing the error message
-	        */
-
-	        header("Location: index.php?error=$em");
-    	}
-    }	
+if($query) 
+{
+    echo 'Success!' . '<br>';
+}
+else
+{
+    echo 'failed!' . '<br>';
+}
+ }
 }

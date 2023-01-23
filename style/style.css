@@ -937,3 +937,9 @@ img {vertical-align: middle;}
 .active, .dot:hover {
   background-color: #717171;
 }
+
+
+.display_images img{
+  width: 250px;
+  height: 250px;
+}

@@ -17,11 +17,12 @@ include 'upload.php';
 
             <form action="upload.php" method="post" enctype="multipart/form-data">
 
+                <input type="hidden" name="id">
                 <input type="text" name="postname" placeholder="Post name">
                 <input type="text" name="marke" placeholder="Car Marke">
                 <input type="text" name="model" placeholder="Car Model">
                 <input type="number" name="price" placeholder="Price">
-                <input type="date" name="year" placeholder="Year od Production">
+                <input type="date" name="year" placeholder="Year of Production">
 
                 <input type="text" name="transission" placeholder="Transission">
 
@@ -33,7 +34,7 @@ include 'upload.php';
 
                 <input type="file" name="fileUpload[]" multiple>
 
-                <input type="submit" name="upload" value="Post">
+                <input type="submit" class="submit_button" name="upload" value="Post">
             </form>
 
             <div class="image_display">

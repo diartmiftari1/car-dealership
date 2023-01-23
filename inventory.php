@@ -28,11 +28,23 @@ $conn->close();
                      <a class="car_link" href="singlecar.php?id=<?php echo $rows['id']; ?>">
                     <div class="car_box">
                     <div class="car_img">
-                        <img src="./img/audir8.jpg" alt="Audi">
+                        <?php
+                    // decode the JSON string to an array
+                            $file_names = json_decode($rows['file_name'], true);
+                            $file_num = count($file_names);
+                            if ($file_num > 0) {
+                                $imageURL = './admin/upload/' . $file_names[0];
+                                ?>
+                                <img src="<?php echo $imageURL; ?>" alt="" />
+                                <?php
+                            } else {
+                                echo '<p>No image(s) found...</p>';
+                            }
+                            ?>
                     </div>
                     <div class="car_box_more_info">
                         <div class="car_title">
-                            <h2><?php echo $rows['marke'] . " " .  $rows['model']; ?></h2>
+                            <h2><?php echo $rows['postname']; ?></h2>
                         </div>
                         <div class="car_icons">
                             <ul class="spec_list">

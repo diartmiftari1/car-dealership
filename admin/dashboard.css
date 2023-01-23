@@ -332,3 +332,47 @@ input#transmission{
     display: inline-block;
 }
 
+/* EDIT TABLE */
+table#inventory_edit{
+  width: 100%;
+}
+#inventory_edit td, #inventory_edit th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#inventory_edit tr:nth-child(even){background-color: #f2f2f2;}
+
+#inventory_edit tr:hover {background-color: #ddd;}
+
+#inventory_edit th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #181818;
+  color: white;
+}
+button.edit_car{
+  background-color: green;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center !important;
+  cursor: pointer;
+}
+button.delete_car{
+  background-color: red;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center !important;
+  cursor: pointer;
+}
+td.image_table img{
+  width: 100px;
+  height: auto;
+}

@@ -5,7 +5,6 @@ $post_id = $_GET['id'];
 
 $i = 0;
 $sql = "SELECT * FROM posts WHERE id=$post_id";
-print($post_id);
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0)
@@ -88,7 +87,7 @@ if (mysqli_num_rows($result) > 0)
                 </li>
                 <li>
                     <span class="single_car_left">Displacement</span>
-                    <span class="single_car_right"><?php echo $row["displacement"] ?></span>
+                    <span class="single_car_right"><?php echo $row["displacement"]. " cc" ?></span>
                 </li>
                 <li>
                     <span class="single_car_left">Transmission</span>

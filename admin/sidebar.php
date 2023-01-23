@@ -20,7 +20,7 @@
 	</span>
 </label>
 <nav id="menu">
-	<a href="#">Mail</a>
+	<a href="./all_cars_admin.php">View all cars</a>
 	<a href="./add_cars_admin.php">Add Car</a>
     <a href="./edit_cars_admin.php">Edit Car</a>
 </nav>

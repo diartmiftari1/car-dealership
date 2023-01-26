@@ -164,3 +164,7 @@ function validateContactForm(){
 		});
 	  
 	  });
+
+
+// DELETE POPUP
+console.log("HELLLO")

@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+include 'db_connection';
+?>
 
 <!-- BANNER -->
 <div class="banner">
@@ -273,7 +275,15 @@
 
 </div>
 
+<<<<<<< Updated upstream
 <?php include 'footer.php'; ?>
+=======
+<<<<<<< HEAD
+   <?php include 'footer.php';?>
+=======
+<?php include 'footer.php'; ?>
+>>>>>>> 4d7de7d735992af8cc8044d48b3feee218198aa4
+>>>>>>> Stashed changes
 </body>
 
 </html>

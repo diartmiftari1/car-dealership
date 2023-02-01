@@ -6,7 +6,7 @@
     </div>
     <div class="wrapper">
         <div class="login_box">
-            <form class="login_form" method="post" name="form" onsubmit="return validatedRegister()">
+            <form action="register_data.php" method="post" class="login_form" method="post" name="form" onsubmit="return validatedRegister()">
                 <h3>Create an account</h3>
                 <div class="input_wrapper">
                     <h4>Your Name</h4>
@@ -32,7 +32,7 @@
 
 
 
-                <button type="submit" class="login_btn">Register</button>
+                <button type="submit" class="login_btn" name="register">Register</button>
 
                 <div class="container signin">
                     <p>Have an account? <a href="./login.html">Login</a> instead.</p>

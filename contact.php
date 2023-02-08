@@ -1,5 +1,23 @@
 <?php include 'header.php'; ?>
+<?php
+include 'db_connection.php';
 
+if (isset($_POST['submit'])) {
+
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phonenumber = $_POST['phone'];
+    $message = $_POST['message'];
+
+    $query = mysqli_query($conn, "INSERT INTO contact_form(fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
+}
+
+
+
+
+
+?>
 <!-- BANNER -->
 <div class="banner">
   <div class="hero_section">
@@ -8,7 +26,7 @@
 
 <!-- CONTACT -->
 <div class="contact_form">
-  <form action="store_data.php" method="post">
+  <form  method="post">
   <div class="wrapper_contact">
     <div class="contact_title title">
       <h2>CONTACT US</h2>
@@ -46,7 +64,7 @@
       </ul>
 
       <div class="form_contact_section">
-        <form id="contact_form" action="store_data.php" name="form" onsubmit="return validateContactForm()">
+        <form id="contact_form" name="form" onsubmit="return validateContactForm()">
 
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">

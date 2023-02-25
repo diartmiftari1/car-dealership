@@ -66,7 +66,7 @@ $conn->close();
 
                             ?>
                         </td>
-                        <td><button type="button" onclick="window.location='http://localhost:8080/admin/edit_cars_admin.php?id=<?php echo $row['id']; ?>';" class="edit_car">Edit</button></td>
+                        <td><button type="button" onclick="window.location='http://localhost:8080/car-dealership/admin/edit_cars_admin.php?id=<?php echo $row['id']; ?>';" class="edit_car">Edit</button></td>
                         <form id="delete-form" action="upload.php" method="post">
                             <input type="hidden" name="delete_car" value="<?php echo $row['id']; ?>">
                             <td class="delete_btn"><a href="#" onclick="openDeleteModal()">Delete</a></td>
@@ -87,7 +87,7 @@ $conn->close();
 <div id="delete-modal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeDeleteModal()">&times;</span>
-        <p>Are you sure you want to delete this post?</p>
+        <p>Are you sure you want to delete this post? <?php echo $row['id']; ?></p>
         <div class="modal-footer">
             <button class="btn" onclick="submitDeleteForm()">Yes</button>
             <button class="btn" onclick="closeDeleteModal()">No</button>

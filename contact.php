@@ -8,6 +8,7 @@
 
 <!-- CONTACT -->
 <div class="contact_form">
+  <form action="store_data.php" method="post">
   <div class="wrapper_contact">
     <div class="contact_title title">
       <h2>CONTACT US</h2>
@@ -45,7 +46,7 @@
       </ul>
 
       <div class="form_contact_section">
-        <form id="contact_form" name="form" onsubmit="return validateContactForm()">
+        <form id="contact_form" action="store_data.php" name="form" onsubmit="return validateContactForm()">
 
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
@@ -57,10 +58,10 @@
             <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" id="mobile" autocomplete="off">
           </div>
           <div class="form-group">
-            <textarea class="form-control" rows="3" id="comment" placeholder="Enter Your Message"></textarea>
+            <textarea class="form-control" rows="3" id="comment" name="message" placeholder="Enter Your Message"></textarea>
           </div>
           <div class="d-flex justify-content-center form-button">
-            <input type="submit" value="Submit" class="submit_buttonn" />
+            <input type="submit" value="Submit" name="submit" class="submit_buttonn" />
           </div>
 
         </form>
@@ -73,7 +74,7 @@
       </div>
     </div>
   </div>
-
+  </form>
 </div>
 <!-- MAP -->
 <div class="map">

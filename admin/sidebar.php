@@ -22,6 +22,7 @@
 <nav id="menu">
 	<a href="./all_cars_admin.php">View all cars</a>
 	<a href="./add_cars_admin.php">Add Car</a>
-    <a href="./edit_cars_admin.php">Edit Car</a>
+    <a href="./add_cars_admin.php">Edit Car</a>
+    <a href="./mail_admin.php">Check Mail</a>
 </nav>
     </div>

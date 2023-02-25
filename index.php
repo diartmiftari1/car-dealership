@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+include 'db_connection';
+?>
 
 <!-- BANNER -->
 <div class="banner">
@@ -273,7 +275,9 @@
 
 </div>
 
-<?php include 'footer.php'; ?>
+
+   <?php include 'footer.php';?>
+
 </body>
 
 </html>

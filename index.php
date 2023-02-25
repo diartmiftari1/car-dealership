@@ -5,6 +5,7 @@ $result = $conn->query($query);
 
 
 
+
 $conn->close();
 ?>
 
@@ -177,6 +178,18 @@ while($rows=mysqli_fetch_assoc($result)){
     </div>
 </div>
 <!-- CONTACT -->
+<?php 
+if (isset($_POST['submit_index'])) {
+
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phonenumber = $_POST['phone'];
+    $message = $_POST['message'];
+
+    $query_form = mysqli_query($conn, "INSERT INTO contact_form_index (fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
+}
+?>
 <div class="contact_form">
     <div class="wrapper_contact">
         <div class="contact_title title">
@@ -191,23 +204,23 @@ while($rows=mysqli_fetch_assoc($result)){
             </ul>
 
             <div class="form_contact_section">
-                <form action="/action_page.php">
+                <form >
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="username" required autocomplete="on">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Enter email" id="email" required autocomplete="on">
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Enter Mobile Number" id="mobile" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3" id="comment" placeholder="Enter Your Message"></textarea>
-                    </div>
-                    <div class="d-flex justify-content-center form-button">
-                        <button type="submit" class="btn submit_button">Submit</button>
-                    </div>
+                <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" autocomplete="on">
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" id="mobile" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" id="comment" name="message" placeholder="Enter Your Message"></textarea>
+          </div>
+          <div class="d-flex justify-content-center form-button">
+            <input type="submit" value="Submit" name="submit_index" class="submit_buttonn" />
+          </div>
                 </form>
             </div>
         </div>

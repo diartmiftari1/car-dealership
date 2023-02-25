@@ -40,7 +40,7 @@ $conn->close();
                             } else {
                                 echo '<p>No image(s) found...</p>';
                             }
-                            ?>
+                            ?>  
                     </div>
                     <div class="car_box_more_info">
                         <div class="car_title">

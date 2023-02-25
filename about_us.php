@@ -34,7 +34,7 @@
             <div class="ourteam_img">
                 <div class="team_member">
                     <div class="team_photo">
-                        <img src="/img/profile.png" alt="Profile">
+                        <img src="./img/profile.png" alt="Profile">
                     </div>
                     <div class="member_name">
                         <h3>Diart Miftari</h3>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="team_member">
                     <div class="team_photo">
-                        <img src="/img/profile.png" alt="Profile">
+                        <img src="./img/profile.png" alt="Profile">
                     </div>
                     <div class="member_name">
                         <h3>Granit Gashi</h3>

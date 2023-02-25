@@ -16,11 +16,11 @@
     <!-----         Menu         ------>
     <nav class="underline_nav">
         <input id="nav-toggle" type="checkbox">
-        <a href="index.html">
+        <a href="index.php">
             <div class="logo">Logo Goes Here</div>
         </a>
         <ul class="links">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="about_us.php">About Us</a></li>
             <li><a href="services.php">Services</a></li>
             <li><a href="inventory.php">Inventory</a></li>

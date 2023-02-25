@@ -286,7 +286,7 @@ nav.underline_nav ul li a:hover:after {
   margin-top: 100px;
 }
 .hero_section{
-  background-image:  url("/img/banner_1.jpg");
+  background-image:  url("../img/banner_1.jpg");
   height: 50vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -294,7 +294,7 @@ nav.underline_nav ul li a:hover:after {
   position: relative;
 }
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/img/banner_1.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/banner_1.jpg");
     height: 70vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -942,4 +942,7 @@ img {vertical-align: middle;}
 .display_images img{
   width: 250px;
   height: 250px;
+}
+.hero-text h3 {
+  color: #181818;
 }

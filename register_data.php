@@ -11,13 +11,16 @@ if (isset($_POST['register'])) {
         $name = mysqli_real_escape_string($conn, $name);
         $email = mysqli_real_escape_string($conn, $email);
         $password = mysqli_real_escape_string($conn, $password);
-        $query = "INSERT INTO register_data (name, email, password) VALUES (?,?,?)";
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+        $query = "INSERT INTO users (username, email, password) VALUES ('$name', '$email', '$hashed_password')";
         $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, "sss", $name, $email, $password);
+        if (!$stmt) {
+            die('Error: ' . mysqli_error($conn));
+        }
         if (mysqli_stmt_execute($stmt)) {
-            echo "New record created successfully";
+            header("location: login.php");
         } else {
-            echo "Error: " . $query . "<br>" . mysqli_error($conn);
+            echo "Error: " . mysqli_error($conn);
         }
         mysqli_stmt_close($stmt);
     } else {
@@ -25,5 +28,4 @@ if (isset($_POST['register'])) {
     }
     mysqli_close($conn);
 }
-
 ?>

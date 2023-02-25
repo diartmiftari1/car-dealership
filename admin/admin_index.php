@@ -14,15 +14,15 @@ include '../db_connection.php';
         printf("Error: %s\n", mysqli_error($conn));
         exit();
     }
-    //   $active = $row['active'];
+ 
       
       $count = mysqli_num_rows($result);
       
-      // If result matched $myusername and $mypassword, table row must be 1 row
+     
 		
       if($count == 1) {
         $_SESSION['myusername'] = $myusername;
-        //  $_SESSION['login_user'] = $myusername;
+      
          
          header("location: all_cars_admin.php");
       }else {
@@ -62,6 +62,3 @@ include '../db_connection.php';
 
    </body>
 </html>
-<?php 
-include '../script.js';
-?>

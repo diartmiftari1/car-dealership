@@ -1,6 +1,7 @@
 <?php
 include '../db_connection.php';
    session_start();
+  
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
@@ -29,6 +30,9 @@ include '../db_connection.php';
          $error = "Your Login Name or Password is invalid";
       }
    }
+
+
+
 ?>
 <html>
    

@@ -1,6 +1,14 @@
 <?php include 'header.php';
+session_start();
 
 include 'db_connection.php';
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+
     $query = "SELECT * FROM posts";
 $result = $conn->query($query);
 

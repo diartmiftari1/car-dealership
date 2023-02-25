@@ -10,12 +10,11 @@
                  </div>
                  <div class="footer_links">
                      <ul class="footer_list">
-                         <li><a href="./about_us.html">About Us</a></li>
-                         <li><a href="./services.html">Services</a></li>
-                         <li><a href="./inventory.html">Inventory</a></li>
-                         <li><a href="./contact.html">Contact</a></li>
-                         <li><a href="./login.html">Login</a></li>
-                         <li><a href="./register.html">Register</a></li>
+                         <li><a href="./about_us.php">About Us</a></li>
+                         <li><a href="./services.php">Services</a></li>
+                         <li><a href="./inventory.php">Inventory</a></li>
+                         <li><a href="./contact.php">Contact</a></li>
+                         <li><a href="./register.php">Register</a></li>
                      </ul>
                  </div>
                  <div class="footer_info">

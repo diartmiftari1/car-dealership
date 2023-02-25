@@ -1,9 +1,19 @@
 <?php
-
+session_start();
 // include '../db_connection.php';
 include 'upload.php';
 
 include 'sidebar.php';
+
+// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+//     header("Location: admin_index.php");
+//     exit;
+// }else{
+//     header("Location: all_cars_admin.php");
+//     exit;
+// }
+
+
 $query = "SELECT * FROM posts";
 $result = $conn->query($query);
 
@@ -64,9 +74,20 @@ $conn->close();
                                 echo '<p>No image(s) found...</p>';
                             }
 
+                            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+                            $host = $_SERVER['HTTP_HOST'];
+                            $port = $_SERVER['SERVER_PORT'];
+                            $root = $_SERVER['DOCUMENT_ROOT'];
+                            
+                            if (($protocol === "http" && $port !== 80) || ($protocol === "https" && $port !== 443)) {
+                              $port = ":" . $port;
+                            } else {
+                              $port = "";
+                            }
+
                             ?>
                         </td>
-                        <td><button type="button" onclick="window.location='http://localhost:8080/car-dealership/admin/edit_cars_admin.php?id=<?php echo $row['id']; ?>';" class="edit_car">Edit</button></td>
+                        <td><button type="button" onclick="window.location= $base_url='edit_cars_admin.php?id=<?php echo $row['id']; ?>';" class="edit_car">Edit</button></td>
                         <form id="delete-form" action="upload.php" method="post">
                             <input type="hidden" name="delete_car" value="<?php echo $row['id']; ?>">
                             <td class="delete_btn"><a href="#" onclick="openDeleteModal()">Delete</a></td>

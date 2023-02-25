@@ -25,7 +25,18 @@
             <li><a href="services.php">Services</a></li>
             <li><a href="inventory.php">Inventory</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Login</a></li>
+            <?php
+            session_start();
+
+            if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+                // User is logged in, show "Logout" link
+                echo '<li><a href="logout.php">Logout</a></li>';
+            } else {
+                // User is not logged in, show "Login" link
+                echo '<li><a href="login.php">Login</a></li>';
+            }
+            ?>
+
             <li><a href="register.php">Register</a></li>
         </ul>
 

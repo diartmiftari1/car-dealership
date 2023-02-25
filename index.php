@@ -179,16 +179,7 @@ while($rows=mysqli_fetch_assoc($result)){
 </div>
 <!-- CONTACT -->
 <?php 
-if (isset($_POST['submit_index'])) {
 
-
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phonenumber = $_POST['phone'];
-    $message = $_POST['message'];
-
-    $query_form = mysqli_query($conn, "INSERT INTO contact_form_index (fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
-}
 ?>
 <div class="contact_form">
     <div class="wrapper_contact">
@@ -204,7 +195,7 @@ if (isset($_POST['submit_index'])) {
             </ul>
 
             <div class="form_contact_section">
-                <form >
+                <form action="store_data.php">
 
                 <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">

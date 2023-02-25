@@ -3,6 +3,7 @@ include 'header.php';
 include 'db_connection.php';
 session_start();
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
     $email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -12,12 +13,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
+
+   
     
     if(mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
-            $_SESSION['email'] = $email;
+            $_SESSION['logged_in'] = true;
+            // $_SESSION['email'] = $email;
             header("location: inventory.php");
+            exit;
         } else {
             $error = "Your Login Name or Password is invalid";
         }
@@ -26,8 +31,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-}
 
+
+}
 ?>
 <div class="login_page">
     <div class="login_page_banner">

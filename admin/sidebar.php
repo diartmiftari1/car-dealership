@@ -22,7 +22,13 @@
 <nav id="menu">
 	<a href="./all_cars_admin.php">View all cars</a>
 	<a href="./add_cars_admin.php">Add Car</a>
-    <a href="./add_cars_admin.php">Edit Car</a>
     <a href="./mail_admin.php">Check Mail</a>
+    <?php 
+     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+        // User is logged in, show "Logout" link
+        echo '<li><a href="logout.php">Logout</a></li>';
+    }
+    ?>
+
 </nav>
     </div>

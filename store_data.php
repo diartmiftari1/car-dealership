@@ -11,9 +11,4 @@ if (isset($_POST['submit'])) {
 
     $query = mysqli_query($conn, "INSERT INTO contact_form(fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
 }
-
-
-
-
-
 ?>

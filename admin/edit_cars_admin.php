@@ -1,5 +1,4 @@
 <?php
-// include '../db_connection.php';
 
 include 'sidebar.php';
 // Include the database configuration file
@@ -14,17 +13,17 @@ include 'upload.php';
             <div class="title">
                 <h2>Edit Cars</h2>
             </div>
+<!-- 
+    <?php
+    if (isset($_GET['id'])) {
+        $post_id = $_GET['id'];
+        $post_query = "SELECT * FROM posts WHERE id='$post_id' LIMIT 1";
+        $post_query_res = mysqli_query($conn, $post_query);
 
-            <?php
-            if (isset($_GET['id'])) {
-                $post_id = $_GET['id'];
-                $post_query = "SELECT * FROM posts WHERE id='$post_id' LIMIT 1";
-                $post_query_res = mysqli_query($conn, $post_query);
 
-
-                if (mysqli_num_rows($post_query_res) > 0) {
-                    $row = mysqli_fetch_array($post_query_res);
-            ?>
+        if (mysqli_num_rows($post_query_res) > 0) {
+            $row = mysqli_fetch_array($post_query_res);
+    ?> -->
 
 
                     <form action="upload.php" method="post" enctype="multipart/form-data">

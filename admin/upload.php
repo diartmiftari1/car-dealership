@@ -69,7 +69,15 @@ if(isset($_POST['remove_images'])){
         $file_names_json = json_encode($file_names);
         $update_query = "UPDATE posts SET file_name='$file_names_json' WHERE id='$post_id'";
         $update_result = mysqli_query($conn, $update_query);
-}
+        if ($update_query) {
+            $response_array['status'] = 'success';
+            $response_array['message'] = 'Message Sent!';
+        } else {
+            $response_array['status'] = 'error';
+            $response_array['message'] = 'Error sending email!';
+        }
+        echo json_encode($response_array);
+     } 
 
 
 
@@ -83,4 +91,20 @@ if(isset($_POST['delete_car'])){
     $query_run = mysqli_query($conn, $query);
 }
 
+
+// Delete a mail
+if (isset($_POST['delete_mail'])) {
+    // Get the post id from the form
+    $mail_id = $_POST['delete_mail'];
+    // Delete the post from the database
+    $query_del = "DELETE FROM contact_form WHERE ID='$mail_id' LIMIT 1 ";
+    $query_run = mysqli_query($conn, $query_del);
+
+    if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        header("Location: admin_index.php");
+        exit;
+    } else {
+        // echo "test";
+    }
+}
 ?>

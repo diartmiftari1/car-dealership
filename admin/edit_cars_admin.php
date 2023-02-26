@@ -1,8 +1,15 @@
 <?php
-
+session_start();
 include 'sidebar.php';
 // Include the database configuration file
 include 'upload.php';
+
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: admin_index.php");
+    exit;
+} else {
+    // echo "test";
+}
 
 ?>
 
@@ -26,7 +33,7 @@ include 'upload.php';
     ?> -->
 
 
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <form id="edit_form" action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="post_id" value="<?php echo $row['id'] ?>">
                         <input type="text" name="postname" value="<?php echo $row['postname'] ?>" placeholder="Post name">
                         <input type="text" name="marke" value="<?php echo $row['marke'] ?>" placeholder="Car Marke">
@@ -45,7 +52,10 @@ include 'upload.php';
                         <input type="file" name="fileUpload[]" multiple>
 
                         <input type="submit" class="submit_button" name="update" value="Update">
+                        <span class="output_message"></span>
+            <span class="output_message_error"></span>
                     </form>
+                    
                 <?php
 
                 } else {
@@ -59,3 +69,34 @@ include 'upload.php';
 
     </div>
 </div>
+<script>
+
+    $(document).ready(function() {
+    $('#edit_form').on('submit',function(){
+        // Add text 'loading...' right after clicking on the submit button. 
+        $('.output_message').text('Loading...'); 
+         
+        var form = $(this);
+        $.ajax({
+            url: 'upload.php',
+            method: form.attr('method'),
+            data: form.serialize(),
+            dataType: 'json', // specify the data type as JSON
+            success: function(response){
+                if (response.status == 'success'){
+                    $('.output_message').text(response.message);  
+                }
+                else{
+                    $('.output_message').text("Message sent successfully");  
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                $('.output_message').text('An error occurred while submitting the form: ' + errorThrown);
+            }
+        });
+         
+        // Prevents default submission of the form after clicking on the submit button. 
+        return false;   
+    });
+});
+</script>

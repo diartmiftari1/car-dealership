@@ -10,19 +10,19 @@ if (isset($_POST['submit'])) {
 
     $query = mysqli_query($conn, "INSERT INTO contact_form (fl_name, Email, Phone, Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
 
-    $response = array(
-        'status' => 'success',
-        'message' => 'Message sent successfully'
-    );
+    if ($query) {
+        $response_array['status'] = 'success';
+        $response_array['message'] = 'Message Sent!';
+    } else {
+        $response_array['status'] = 'error';
+        $response_array['message'] = 'Error sending email!';
+    }
+    echo json_encode($response_array);
 } else {
-    $response = array(
-        'status' => 'error',
-        'message' => 'Invalid request'
-    );
+    $response_array['status'] = 'error';
+    $response_array['message'] = 'Invalid request!';
+    echo json_encode($response_array);
 }
-
-echo json_encode($response);
-
 
 if (isset($_POST['submit_index'])) {
 

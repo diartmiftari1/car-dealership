@@ -1,8 +1,16 @@
 <?php
+session_start();
 include '../db_connection.php';
 
 include 'sidebar.php';
-// Include the database configuration file
+
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: admin_index.php");
+    exit;
+} else {
+    // echo "test";
+}
+
 // ADD NEW POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['fileUpload'])) {
@@ -29,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         // convert the array of file names to a JSON string
         $file_names_json = json_encode($file_names);
-        var_dump($file_names_json);
-        // insert the JSON string into the database
+        // var_dump($file_names_json);
+
 
 
 
@@ -71,8 +79,6 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
 
                 <input type="hidden" name="id">
                 <input type="text" name="postname" placeholder="Post name">
-                <!-- <input type="text" name="marke" placeholder="Car Marke"> -->
-                <!-- <label for="marke">Select a category:</label> -->
                 <select id="marke" name="marke">
                     <option value="">-- Car Marke --</option>
                     <option value="MercedesBenz">Mercedes-Benz</option>
@@ -82,7 +88,6 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
                     <option value="Volvo">Volvo</option>
                 </select>
                 <div id="sub_select_container"></div>
-                <!-- <input type="text" name="model" placeholder="Car Model"> -->
                 <input type="number" name="price" placeholder="Price">
                 <input type="date" name="year" placeholder="Year of Production">
 
@@ -96,11 +101,10 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
                 <input type="text" name="body_style" placeholder="Body Style">
                 <input type="number" name="mileage" placeholder="Mileage">
                 <input type="text" name="fuel_type" placeholder="Fuel Type">
-                <!-- <input type="hidden" name="id" value="<?php echo $id; ?>"> -->
 
                 <input type="file" name="fileUpload[]" multiple>
 
-                <input type="submit" onclick="openSuccessModal()" class="submit_button" name="upload" value="Post">
+                <input type="submit" class="submit_button" name="upload" value="Post">
             </form>
     </div>
     </div>
@@ -110,12 +114,9 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
 <script>
     var mainSelect = document.getElementById("marke");
 
-    // Listen for changes to the main select element
     mainSelect.addEventListener("change", function() {
-        // Get the selected value
         var selectedValue = mainSelect.options[mainSelect.selectedIndex].value;
 
-        // Define the options for the sub select element
         var subSelectOptions = {
             MercedesBenz: [{
                     value: "E63",
@@ -204,26 +205,22 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
             ]
         };
 
-        // Get the sub select container
+
         var subSelectContainer = document.getElementById("sub_select_container");
 
-        // Clear the existing sub select element
         subSelectContainer.innerHTML = "";
 
-        // Check if there are options for the selected value
         if (subSelectOptions.hasOwnProperty(selectedValue)) {
-            // Create the sub select element
+
             var subSelect = document.createElement("select");
             subSelect.id = "sub_select";
             subSelect.name = "sub_select";
 
-            // Create the default option for the sub select element
             var defaultOption = document.createElement("option");
             defaultOption.value = "";
             defaultOption.text = "-- Car Model --";
             subSelect.appendChild(defaultOption);
 
-            // Loop through the options for the selected value
             for (var i = 0; i < subSelectOptions[selectedValue].length; i++) {
                 var option = document.createElement("option");
                 option.value = subSelectOptions[selectedValue][i].value;
@@ -231,38 +228,10 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
                 subSelect.appendChild(option);
             }
 
-            // Add the sub select element to the container
             subSelectContainer.appendChild(subSelect);
         }
     });
 
-
-    function openSuccessModal() {
-        document.getElementById("success-modal").style.display = "block";
-    }
-
-    function closeSuccessModal() {
-        document.getElementById("success-modal").style.display = "none";
-    }
     var form = document.getElementById("form");
-
-
-
-$( "#form" ).submit(function( event ) {
-  event.preventDefault();
-}); 
-
-
-// Parse the JSON string containing the file names
-var file_names = JSON.parse('<?php echo $file_names_json ?>');
-
-// Get the container element where the thumbnails will be displayed
-var container = $('#thumbnails-container');
-
-// Loop through the file names and create an <img> element for each
-for (var i = 0; i < file_names.length; i++) {
-  var img = $('<img>').attr('src', './upload/' + file_names[i]).addClass('thumbnail');
-  container.append(img);
-}
 
 </script>

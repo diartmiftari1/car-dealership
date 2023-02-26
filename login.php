@@ -4,19 +4,19 @@ include 'db_connection.php';
 session_start();
 
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $password = mysqli_real_escape_string($conn,$_POST['password']); 
-    
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
     $stmt = mysqli_prepare($conn, "SELECT id, password FROM users WHERE email = ?");
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
-   
-    
-    if(mysqli_num_rows($result) == 1) {
+
+
+    if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
             $_SESSION['logged_in'] = true;
@@ -31,9 +31,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-
-
 }
+
 ?>
 <div class="login_page">
     <div class="login_page_banner">
@@ -57,16 +56,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <button type="submit" class="login_btn">Login</button>
-
                 <div class="container signin">
-                    <p>Don't have an account? <a href="./register.html">Register</a>.</p>
+                    <p>Don't have an account? <a href="./register.php">Register</a>.</p>
                 </div>
+
             </form>
 
 
         </div>
     </div>
 </div>
+
 
 <?php include 'footer.php'; ?>
 </body>

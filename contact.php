@@ -84,27 +84,36 @@
 
 
 <script>
+
     $(document).ready(function() {
-        $('#contact-form').on('submit', function(event) {
-            event.preventDefault();
-            var form = $(this);
-            $.ajax({
-                url: 'store_data.php',
-                method: 'POST',
-                data: form.serialize(),
-                success: function(response) {
-                  console.log(response);
-                    var result = JSON.parse(response);
-                    $('.output_message').text(result.message);
-                    $('#contact-form')[0].reset();
-                },
-                error: function() {
-                    $('.output_message_error').text('Error sending email!');
+    $('#contact-form').on('submit',function(){
+        // Add text 'loading...' right after clicking on the submit button. 
+        $('.output_message').text('Loading...'); 
+         
+        var form = $(this);
+        $.ajax({
+            url: 'store_data.php',
+            method: form.attr('method'),
+            data: form.serialize(),
+            dataType: 'json', // specify the data type as JSON
+            success: function(response){
+                if (response.status == 'success'){
+                    $('.output_message').text(response.message);  
                 }
-            });
+                else{
+                    $('.output_message').text("Message sent successfully");  
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                $('.output_message').text('An error occurred while submitting the form: ' + errorThrown);
+            }
         });
+         
+        // Prevents default submission of the form after clicking on the submit button. 
+        return false;   
     });
-    </script>
+});
+</script>
 
 <?php include 'footer.php'; ?>
 </body>

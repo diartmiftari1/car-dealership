@@ -1,32 +1,23 @@
 <?php
+session_start();
 // include '../db_connection.php';
 include 'upload.php';
 include 'sidebar.php';
 
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: admin_index.php");
+    exit;
+} else {
+    // echo "test";
+}
+
 $query = "SELECT * FROM contact_form";
 $result = $conn->query($query);
 
-// Delete a mail
-if (isset($_POST['delete_mail'])) {
-    // Get the post id from the form
-    $Phone = $_POST['delete_mail'];
-    // Delete the post from the database
-    $query_del = "DELETE FROM contact_form WHERE Phone='$Phone' LIMIT 1 ";
-    $query_run = mysqli_query($conn, $query_del);
-    if ($query_run) {
-        $query = "SELECT * FROM contact_form";
-        $result = $conn->query($query);
-        echo "<script>
-                alert('Record deleted successfully');
-                window.location.href = window.location.href;
-              </script>";
-    } else {
-        echo "<script>
-                alert('Error deleting record: " . mysqli_error($conn) . "');
-                window.location.href = window.location.href;
-              </script>";
-    }
-}
+
+
+
+
 
 $conn->close();
 ?>
@@ -34,9 +25,10 @@ $conn->close();
 <!-- INVENTORY -->
 <div class="inventory">
     <div class="wrapper">
-        <div class="invetory_boxes_page">
+        <div class="invetory_boxes_page" style="overflow-x:auto;">
             <table id="inventory_edit">
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
@@ -45,13 +37,14 @@ $conn->close();
                 </tr>
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
+                        <td><?php echo $row['ID']; ?></td>
                         <td><?php echo $row['fl_name']; ?></td>
                         <td><?php echo $row['Email']; ?></td>
                         <td><?php echo $row['Phone']; ?></td>
                         <td><?php echo $row['Messages']; ?></td>
-                        <form id="delete-form" method="post">
-                            <input type="hidden" name="delete_mail" value="<?php echo $row['Phone']; ?>">
-                            <td class="delete_btn"><a href="#" onclick="openDeleteModal()">Delete</a></td>
+                        <form id="delete-form" action="" method="post">
+                            <input type="hidden" name="delete_mail" value="<?php echo $row['ID']; ?>">
+                            <td class="delete_btn"><button type="submit">Delete</button></td>
                         </form>
                     </tr>
                 <?php } ?>
@@ -60,30 +53,26 @@ $conn->close();
     </div>
 </div>
 
-<div id="delete-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeDeleteModal()">&times;</span>
-        <p>Are you sure you want to delete this mail? <?php echo $row['Phone']; ?></p>
-        <div class="modal-footer">
-            <button class="btn" onclick="submitDeleteForm()">Yes</button>
-            <button class="btn" onclick="closeDeleteModal()">No</button>
-        </div>
-    </div>
-</div>
 
 
 <script>
-    function openDeleteModal() {
-        document.getElementById("delete-modal").style.display = "block";
-    }
 
-    function closeDeleteModal() {
-        document.getElementById("delete-modal").style.display = "none";
-    }
+$(document).ready(function() {
+    $('#delete-form').on('submit',function(){
+ 
+        var form = $(this);
+        $.ajax({
+            url: 'upload.php',
+            method: form.attr('method'),
+            data: form.serialize(),
+            dataType: 'json', // specify the data type as JSON
+        });
+         
+        // Prevents default submission of the form after clicking on the submit button. 
+        return false;   
+    });
+});
 
-    function submitDeleteForm() {
-        document.getElementById("delete-form").submit();
-    }
 </script>
 </body>
 

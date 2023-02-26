@@ -1,6 +1,6 @@
 <?php include 'header.php';
 include 'db_connection.php';
-include 'upload.php';
+// include 'upload.php';
 $post_id = $_GET['id'];
 
 $i = 0;

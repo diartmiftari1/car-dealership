@@ -30,15 +30,12 @@
             session_start();
 
             if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-                // User is logged in, show "Logout" link
                 echo '<li><a href="logout.php">Logout</a></li>';
             } else {
-                // User is not logged in, show "Login" link
                 echo '<li><a href="login.php">Login</a></li>';
+                echo '<li><a href="register.php">Register</a></li>';
             }
             ?>
-
-            <li><a href="register.php">Register</a></li>
         </ul>
 
 

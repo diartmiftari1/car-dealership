@@ -956,3 +956,9 @@ span.output_message_error{
   font-size: 18px;
   font-weight: 600;
 }
+
+p.login_error{
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}

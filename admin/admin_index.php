@@ -23,9 +23,8 @@ include '../db_connection.php';
      
 		
       if($count == 1) {
-        $_SESSION['myusername'] = $myusername;
-      
-         
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['myusername'] = $myusername;  
          header("location: all_cars_admin.php");
       }else {
          $error = "Your Login Name or Password is invalid";

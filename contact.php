@@ -1,5 +1,6 @@
 <?php include 'header.php'; ?>
 
+
 <!-- BANNER -->
 <div class="banner">
   <div class="hero_section">
@@ -10,7 +11,7 @@
 <div class="contact_form">
   <!-- <form action="store_data.php" method="post"> -->
   <!-- <form id="contact_form" action="" method="post" action="javascript:void(0)" role="form"> -->
-  <form name="contact-form" action="" method="post" id="contact-form">
+  <!-- <form name="contact-form" action="" method="post" id="contact-form"> -->
     <div class="wrapper_contact">
       <div class="contact_title title">
         <h2>CONTACT US</h2>
@@ -48,7 +49,7 @@
         </ul>
 
         <div class="form_contact_section">
-          <!-- <form id="contact_form" method="post" action="javascript:void(0)" role="form"> -->
+          <form id="contact-form" method="post" action="" role="form">
 
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
@@ -63,16 +64,13 @@
             <textarea class="form-control" rows="3" id="comment" name="message" placeholder="Enter Your Message"></textarea>
           </div>
           <div class="d-flex justify-content-center form-button">
+          <input type="hidden" name="submit" value="1">
             <input type="submit" value="Submit" name="submit" class="submit_buttonn" />
+            <span class="output_message"></span>
+            <span class="output_message_error"></span>
           </div>
 
   </form>
-  <div id="error" class="hide">
-    <div class="alert alert-danger" role="alert">
-      <p><strong>There were error(s) in your form:</strong></p>
-      <p id="msg"></p>
-    </div>
-  </div>
 </div>
 </div>
 </div>
@@ -84,39 +82,28 @@
 
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 <script>
-  $(document).ready(function() {
-    $("#contact-form").on("submit", function(e) {
-      e.preventDefault();
-      if ($("#contact-form [name='your_name']").val() === '') {
-        $("#contact-form [name='your_name']").css("border", "1px solid red");
-      } else if ($("#contact-form [name='your_email']").val() === '') {
-        $("#contact-form [name='your_email']").css("border", "1px solid red");
-      } else {
-        $("#loading-img").css("display", "block");
-        var sendData = $(this).serialize();
-        $.ajax({
-          type: "POST",
-          url: "store_data.php",
-          data: sendData,
-          success: function(data) {
-            $("#loading-img").css("display", "none");
-            $(".response_msg").text(data);
-            $(".response_msg").slideDown().fadeOut(3000);
-            $("#contact-form").find("input[type=text], input[type=email], textarea").val("");
-          }
+    $(document).ready(function() {
+        $('#contact-form').on('submit', function(event) {
+            event.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: 'store_data.php',
+                method: 'POST',
+                data: form.serialize(),
+                success: function(response) {
+                    var result = JSON.parse(response);
+                    $('.output_message').text(result.message);
+                    $('#contact-form')[0].reset();
+                },
+                error: function() {
+                    $('.output_message_error').text('Error sending email!');
+                }
+            });
         });
-      }
     });
-    $("#contact-form input").blur(function() {
-      var checkValue = $(this).val();
-      if (checkValue != '') {
-        $(this).css("border", "1px solid #eeeeee");
-      }
-    });
-  });
-</script>
+    </script>
 
 <?php include 'footer.php'; ?>
 </body>

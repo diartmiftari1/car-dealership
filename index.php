@@ -1,6 +1,6 @@
-<?php include 'header.php'; 
+<?php include 'header.php';
 include 'db_connection.php';
-    $query = "SELECT * FROM posts ORDER BY id desc limit 3 ";
+$query = "SELECT * FROM posts ORDER BY id desc limit 3 ";
 $result = $conn->query($query);
 
 
@@ -112,73 +112,73 @@ $conn->close();
     </div>
     <div class="wrapper">
         <div class="invetory_boxes">
-        <?php 
+            <?php
 
-while($rows=mysqli_fetch_assoc($result)){ 
-    ?>
-
-     <a class="car_link" href="singlecar.php?id=<?php echo $rows['id']; ?>">
-    <div class="car_box">
-    <div class="car_img">
-        <?php
-    // decode the JSON string to an array
-            $file_names = json_decode($rows['file_name'], true);
-            $file_num = count($file_names);
-            if ($file_num > 0) {
-                $imageURL = './admin/upload/' . $file_names[0];
-                ?>
-                <img src="<?php echo $imageURL; ?>" alt="" />
-                <?php
-            } else {
-                echo '<p>No image(s) found...</p>';
-            }
+            while ($rows = mysqli_fetch_assoc($result)) {
             ?>
-    </div>
-    <div class="car_box_more_info">
-        <div class="car_title">
-            <h2><?php echo $rows['postname']; ?></h2>
-        </div>
-        <div class="car_icons">
-            <ul class="spec_list">
-                <li class="spec_list">
-                    <img src="./img/icons/manual-transmission.png" alt="manual-transmission">
-                    <span><?php echo $rows['transission']; ?></span>
-                </li>
-                <li class="spec_list">
-                    <img src="./img/icons/calendar.png" alt="manual-transmission">
-                    <span><?php echo $rows['year']; ?></span>
-                </li>
-                <li class="spec_list">
-                    <img src="./img/icons/horse-jumping-outline-variant.png" alt="manual-transmission">
-                    <span><?php echo $rows['transission']; ?></span>
-                </li>
-                <li class="spec_list">
-                    <img src="./img/icons/gas-station.png" alt="manual-transmission">
-                    <span><?php echo $rows['fuel_type']; ?></span>
-                </li>
-                <li class="spec_list">
-                    <img src="./img/icons/sedan-car-front.png" alt="manual-transmission">
-                    <span><?php echo $rows['body_style']; ?></span>
-                </li>
-                <li class="spec_list">
-                    <img src="./img/icons/car.png" alt="manual-transmission">
-                    <span><?php echo $rows['displacement']; ?></span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-</a>
-<?php 
-}
 
-?>
+                <a class="car_link" href="singlecar.php?id=<?php echo $rows['id']; ?>">
+                    <div class="car_box">
+                        <div class="car_img">
+                            <?php
+                            // decode the JSON string to an array
+                            $file_names = json_decode($rows['file_name'], true);
+                            $file_num = count($file_names);
+                            if ($file_num > 0) {
+                                $imageURL = './admin/upload/' . $file_names[0];
+                            ?>
+                                <img src="<?php echo $imageURL; ?>" alt="" />
+                            <?php
+                            } else {
+                                echo '<p>No image(s) found...</p>';
+                            }
+                            ?>
+                        </div>
+                        <div class="car_box_more_info">
+                            <div class="car_title">
+                                <h2><?php echo $rows['postname']; ?></h2>
+                            </div>
+                            <div class="car_icons">
+                                <ul class="spec_list">
+                                    <li class="spec_list">
+                                        <img src="./img/icons/manual-transmission.png" alt="manual-transmission">
+                                        <span><?php echo $rows['transission']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/calendar.png" alt="manual-transmission">
+                                        <span><?php echo $rows['year']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/horse-jumping-outline-variant.png" alt="manual-transmission">
+                                        <span><?php echo $rows['transission']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/gas-station.png" alt="manual-transmission">
+                                        <span><?php echo $rows['fuel_type']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/sedan-car-front.png" alt="manual-transmission">
+                                        <span><?php echo $rows['body_style']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/car.png" alt="manual-transmission">
+                                        <span><?php echo $rows['displacement']; ?></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            <?php
+            }
+
+            ?>
 
         </div>
     </div>
 </div>
 <!-- CONTACT -->
-<?php 
+<?php
 
 ?>
 <div class="contact_form">
@@ -195,23 +195,27 @@ while($rows=mysqli_fetch_assoc($result)){
             </ul>
 
             <div class="form_contact_section">
-                <form id="contact_form" action="store_data.php" name="form" method="post" >
+                <form id="contact-form" method="post" action="" role="form">
 
-                <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" autocomplete="on">
-          </div>
-          <div class="form-group">
-            <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" id="mobile" autocomplete="off">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" rows="3" id="comment" name="message" placeholder="Enter Your Message"></textarea>
-          </div>
-          <div class="d-flex justify-content-center form-button">
-            <input type="submit" value="Submit" name="submit_index" class="submit_buttonn" />
-          </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" autocomplete="on">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" id="mobile" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" id="comment" name="message" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center form-button">
+                        <input type="hidden" name="submit_index" value="1">
+                        <input type="submit" value="Submit" name="submit_index" class="submit_buttonn" />
+                        <span class="output_message"></span>
+                        <span class="output_message_error"></span>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -225,7 +229,40 @@ while($rows=mysqli_fetch_assoc($result)){
 </div>
 
 
-   <?php include 'footer.php';?>
+<script>
+
+    $(document).ready(function() {
+    $('#contact-form').on('submit',function(){
+        // Add text 'loading...' right after clicking on the submit button. 
+        $('.output_message').text('Loading...'); 
+         
+        var form = $(this);
+        $.ajax({
+            url: 'store_data.php',
+            method: form.attr('method'),
+            data: form.serialize(),
+            dataType: 'json', // specify the data type as JSON
+            success: function(response){
+                if (response.status == 'success'){
+                    $('.output_message').text(response.message);  
+                }
+                else{
+                    $('.output_message').text("Message sent successfully");  
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                $('.output_message').text('An error occurred while submitting the form: ' + errorThrown);
+            }
+        });
+         
+        // Prevents default submission of the form after clicking on the submit button. 
+        return false;   
+    });
+});
+
+</script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 

@@ -2,6 +2,9 @@
 // Include the database configuration file 
 include '../db_connection.php';
 
+
+
+
 $images = array();
 $type = array();
 $size = array();
@@ -79,3 +82,5 @@ if(isset($_POST['delete_car'])){
     $query = "DELETE FROM posts WHERE id='$post_id' LIMIT 1 ";
     $query_run = mysqli_query($conn, $query);
 }
+
+?>

@@ -15,7 +15,7 @@ include 'sidebar.php';
 
 
 $query = "SELECT * FROM posts";
-$result = $conn->query($query);
+$result = $conn->query($query); 
 
 $conn->close();
 

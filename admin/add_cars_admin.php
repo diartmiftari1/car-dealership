@@ -39,7 +39,10 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
 
        
     }
+    
 }
+
+
 ?>
 
 <div id="success-modal" class="modal">
@@ -69,7 +72,7 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
                 <input type="hidden" name="id">
                 <input type="text" name="postname" placeholder="Post name">
                 <!-- <input type="text" name="marke" placeholder="Car Marke"> -->
-                <label for="marke">Select a category:</label>
+                <!-- <label for="marke">Select a category:</label> -->
                 <select id="marke" name="marke">
                     <option value="">-- Car Marke --</option>
                     <option value="MercedesBenz">Mercedes-Benz</option>
@@ -99,14 +102,7 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
 
                 <input type="submit" onclick="openSuccessModal()" class="submit_button" name="upload" value="Post">
             </form>
-
-            <div class="image_display">
-
-
-            </div>
-        </div>
-
-
+    </div>
     </div>
 </div>
 
@@ -250,10 +246,23 @@ VALUES ('$postname', '$marke', '$model','$price','$year','$transission','$displa
     }
     var form = document.getElementById("form");
 
-// Listen for the submit event on the form
+
+
 $( "#form" ).submit(function( event ) {
   event.preventDefault();
-  // Your code to handle the form submission
-});
+}); 
+
+
+// Parse the JSON string containing the file names
+var file_names = JSON.parse('<?php echo $file_names_json ?>');
+
+// Get the container element where the thumbnails will be displayed
+var container = $('#thumbnails-container');
+
+// Loop through the file names and create an <img> element for each
+for (var i = 0; i < file_names.length; i++) {
+  var img = $('<img>').attr('src', './upload/' + file_names[i]).addClass('thumbnail');
+  container.append(img);
+}
 
 </script>

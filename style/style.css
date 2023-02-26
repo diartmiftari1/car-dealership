@@ -944,3 +944,15 @@ img {vertical-align: middle;}
 .hero-text h3 {
   color: #181818;
 }
+
+
+span.output_message{
+  color: #00bd00;
+  font-size: 18px;
+  font-weight: 600;
+}
+span.output_message_error{
+  color: red;
+  font-size: 18px;
+  font-weight: 600;
+}

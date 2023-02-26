@@ -153,6 +153,7 @@ form {
     border: none;
     font-size: 16px;
     margin-bottom: 20px;
+    display: inline-flex;
   }
   
   input[type="submit"] {
@@ -179,6 +180,9 @@ form {
   #sub_select_container {
     margin-top: 20px;
   }
+  select#sub_select{
+    width: 100%;
+  }
   
   @media screen and (min-width: 768px) {
     input,
@@ -187,7 +191,7 @@ form {
     }
   
     #sub_select_container {
-      width: 100%;
+      width: 50%;
     }
   
     input[type="file"] {

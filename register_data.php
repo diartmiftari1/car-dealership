@@ -28,4 +28,9 @@ if (isset($_POST['register'])) {
     }
     mysqli_close($conn);
 }
+if (mysqli_errno($conn) == 1062) {
+    echo "Error: Email already exists.";
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
 ?>

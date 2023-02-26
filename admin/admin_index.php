@@ -15,6 +15,7 @@ include '../db_connection.php';
         printf("Error: %s\n", mysqli_error($conn));
         exit();
     }
+    
  
       
       $count = mysqli_num_rows($result);
@@ -38,31 +39,30 @@ include '../db_connection.php';
    
    <head>
       <title>Login Page</title>
-      <link rel="stylesheet" href="dashboard.css">
+      <link rel="stylesheet" href="admin_style.css">
       
    </head>
    
-   <body bgcolor = "#FFFFFF">
-	
-      <div align = "center">
-         <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style = "margin:30px">
-               
-               <form action = "" method = "post">
-                  <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                  <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
-                  <input type = "submit" value = " Submit "/><br />
-               </form>
-               
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-					
-            </div>
-				
-         </div>
-			
+   <body>
+  <div class="container">
+    <div class="login-box">
+      <div class="login-header">
+        <h2>Admin Login</h2>
       </div>
-
-   </body>
+      <div class="login-body">
+        <form action="" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" class="form-control" />
+          </div>
+          <button type="submit" class="btn-submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

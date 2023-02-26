@@ -1,5 +1,12 @@
-<?php include 'header.php'; 
-include 'db_connection';
+<?php include 'header.php';
+include 'db_connection.php';
+$query = "SELECT * FROM posts ORDER BY id desc limit 3 ";
+$result = $conn->query($query);
+
+
+
+
+$conn->close();
 ?>
 
 <!-- BANNER -->
@@ -29,7 +36,7 @@ include 'db_connection';
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates repellat, a earum error dignissimos voluptatibus velit ab natus nobis quos?</p>
             </div>
             <div class="about_img">
-                <img src="/img/inventory.jpg" alt="No Image">
+                <img src="./img/inventory.jpg" alt="No Image">
             </div>
         </div>
     </div>
@@ -105,133 +112,75 @@ include 'db_connection';
     </div>
     <div class="wrapper">
         <div class="invetory_boxes">
-            <a class="car_link" href="singlecar.html">
-                <div class="car_box">
-                    <div class="car_img">
-                        <img src="./img/c63.jpg" alt="Mercedes C63">
-                    </div>
-                    <div class="car_box_more_info">
-                        <div class="car_title">
-                            <h2>Mercedes Benz C63 AMG</h2>
-                        </div>
-                        <div class="car_icons">
-                            <ul class="spec_list">
-                                <li class="spec_list">
-                                    <img src="./img/icons/manual-transmission.png" alt="manual-transmission">
-                                    <span>Automatic</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/calendar.png" alt="manual-transmission">
-                                    <span>02.2012</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/horse-jumping-outline-variant.png" alt="manual-transmission">
-                                    <span>451PS</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/gas-station.png" alt="manual-transmission">
-                                    <span>Petrol</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/sedan-car-front.png" alt="manual-transmission">
-                                    <span>Sedan</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/car.png" alt="manual-transmission">
-                                    <span>6200cc</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <?php
 
-                </div>
-            </a>
-            <a class="car_link" href="singlecar.html">
-                <div class="car_box">
-                    <div class="car_img">
-                        <img src="./img/audir8.jpg" alt="Audi">
-                    </div>
-                    <div class="car_box_more_info">
-                        <div class="car_title">
-                            <h2>Audi</h2>
-                        </div>
-                        <div class="car_icons">
-                            <ul class="spec_list">
-                                <li class="spec_list">
-                                    <img src="./img/icons/manual-transmission.png" alt="manual-transmission">
-                                    <span>Automatic</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/calendar.png" alt="manual-transmission">
-                                    <span>02.2022</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/horse-jumping-outline-variant.png" alt="manual-transmission">
-                                    <span>639PS</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/gas-station.png" alt="manual-transmission">
-                                    <span>Petrol</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/sedan-car-front.png" alt="manual-transmission">
-                                    <span>Coupe</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/car.png" alt="manual-transmission">
-                                    <span>3.982cc</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            while ($rows = mysqli_fetch_assoc($result)) {
+            ?>
 
-            <a class="car_link" href="singlecar.html">
-                <div class="car_box">
-                    <div class="car_img">
-                        <img src="./img/bmwm4.jpg" alt="BMW M4">
-                    </div>
-                    <div class="car_box_more_info">
-                        <div class="car_title">
-                            <h2>BMW M4</h2>
+                <a class="car_link" href="singlecar.php?id=<?php echo $rows['id']; ?>">
+                    <div class="car_box">
+                        <div class="car_img">
+                            <?php
+                            // decode the JSON string to an array
+                            $file_names = json_decode($rows['file_name'], true);
+                            $file_num = count($file_names);
+                            if ($file_num > 0) {
+                                $imageURL = './admin/upload/' . $file_names[0];
+                            ?>
+                                <img src="<?php echo $imageURL; ?>" alt="" />
+                            <?php
+                            } else {
+                                echo '<p>No image(s) found...</p>';
+                            }
+                            ?>
                         </div>
-                        <div class="car_icons">
-                            <ul class="spec_list">
-                                <li class="spec_list">
-                                    <img src="./img/icons/manual-transmission.png" alt="manual-transmission">
-                                    <span>Automatic</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/calendar.png" alt="manual-transmission">
-                                    <span>02.2015</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/horse-jumping-outline-variant.png" alt="manual-transmission">
-                                    <span>425PS</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/gas-station.png" alt="manual-transmission">
-                                    <span>Petrol</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/sedan-car-front.png" alt="manual-transmission">
-                                    <span>Coupe</span>
-                                </li>
-                                <li class="spec_list">
-                                    <img src="./img/icons/car.png" alt="manual-transmission">
-                                    <span>2998cc</span>
-                                </li>
-                            </ul>
+                        <div class="car_box_more_info">
+                            <div class="car_title">
+                                <h2><?php echo $rows['postname']; ?></h2>
+                            </div>
+                            <div class="car_icons">
+                                <ul class="spec_list">
+                                    <li class="spec_list">
+                                        <img src="./img/icons/manual-transmission.png" alt="manual-transmission">
+                                        <span><?php echo $rows['transission']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/calendar.png" alt="manual-transmission">
+                                        <span><?php echo $rows['year']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/horse-jumping-outline-variant.png" alt="manual-transmission">
+                                        <span><?php echo $rows['transission']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/gas-station.png" alt="manual-transmission">
+                                        <span><?php echo $rows['fuel_type']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/sedan-car-front.png" alt="manual-transmission">
+                                        <span><?php echo $rows['body_style']; ?></span>
+                                    </li>
+                                    <li class="spec_list">
+                                        <img src="./img/icons/car.png" alt="manual-transmission">
+                                        <span><?php echo $rows['displacement']; ?></span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            <?php
+            }
+
+            ?>
 
         </div>
     </div>
 </div>
 <!-- CONTACT -->
+<?php
+
+?>
 <div class="contact_form">
     <div class="wrapper_contact">
         <div class="contact_title title">
@@ -246,23 +195,27 @@ include 'db_connection';
             </ul>
 
             <div class="form_contact_section">
-                <form action="/action_page.php">
+                <form id="contact-form" method="post" action="" role="form">
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Your Name" id="username" required autocomplete="on">
+                        <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Enter email" id="email" required autocomplete="on">
+                        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" autocomplete="on">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Enter Mobile Number" id="mobile" autocomplete="off">
+                        <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" id="mobile" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" id="comment" placeholder="Enter Your Message"></textarea>
+                        <textarea class="form-control" rows="3" id="comment" name="message" placeholder="Enter Your Message"></textarea>
                     </div>
                     <div class="d-flex justify-content-center form-button">
-                        <button type="submit" class="btn submit_button">Submit</button>
+                        <input type="hidden" name="submit_index" value="1">
+                        <input type="submit" value="Submit" name="submit_index" class="submit_buttonn" />
+                        <span class="output_message"></span>
+                        <span class="output_message_error"></span>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -276,7 +229,40 @@ include 'db_connection';
 </div>
 
 
-   <?php include 'footer.php';?>
+<script>
+
+    $(document).ready(function() {
+    $('#contact-form').on('submit',function(){
+        // Add text 'loading...' right after clicking on the submit button. 
+        $('.output_message').text('Loading...'); 
+         
+        var form = $(this);
+        $.ajax({
+            url: 'store_data.php',
+            method: form.attr('method'),
+            data: form.serialize(),
+            dataType: 'json', // specify the data type as JSON
+            success: function(response){
+                if (response.status == 'success'){
+                    $('.output_message').text(response.message);  
+                }
+                else{
+                    $('.output_message').text("Message sent successfully");  
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                $('.output_message').text('An error occurred while submitting the form: ' + errorThrown);
+            }
+        });
+         
+        // Prevents default submission of the form after clicking on the submit button. 
+        return false;   
+    });
+});
+
+</script>
+
+<?php include 'footer.php'; ?>
 
 </body>
 

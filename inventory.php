@@ -1,6 +1,14 @@
 <?php include 'header.php';
+session_start();
 
 include 'db_connection.php';
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+
     $query = "SELECT * FROM posts";
 $result = $conn->query($query);
 
@@ -40,7 +48,7 @@ $conn->close();
                             } else {
                                 echo '<p>No image(s) found...</p>';
                             }
-                            ?>
+                            ?>  
                     </div>
                     <div class="car_box_more_info">
                         <div class="car_title">

@@ -10,12 +10,11 @@
                  </div>
                  <div class="footer_links">
                      <ul class="footer_list">
-                         <li><a href="./about_us.html">About Us</a></li>
-                         <li><a href="./services.html">Services</a></li>
-                         <li><a href="./inventory.html">Inventory</a></li>
-                         <li><a href="./contact.html">Contact</a></li>
-                         <li><a href="./login.html">Login</a></li>
-                         <li><a href="./register.html">Register</a></li>
+                         <li><a href="./about_us.php">About Us</a></li>
+                         <li><a href="./services.php">Services</a></li>
+                         <li><a href="./inventory.php">Inventory</a></li>
+                         <li><a href="./contact.php">Contact</a></li>
+                         <li><a href="./register.php">Register</a></li>
                      </ul>
                  </div>
                  <div class="footer_info">
@@ -42,4 +41,5 @@
 
  </footer>
 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  <script src="script.js"></script>

@@ -18,7 +18,7 @@
                     <input autocomplete="off" type="text" name="email">
                     <div id="email_error">Please fill up your Email</div>
                 </div>
-
+                
                 <div class="input_wrapper">
                     <h4>Password</h4>
                     <input type="password" name="password">

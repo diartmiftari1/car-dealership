@@ -16,6 +16,9 @@ body{
     width: 80%;
     margin: 0 auto;
   }
+  .add_cars_admin .wrapper{
+    width: 60%;
+  }
   .title{
     text-align: center;
     margin-bottom: 60px;
@@ -134,35 +137,62 @@ form {
     margin: 0 0 20px 0;
     padding: 0;
   }
-  form input , form select{
-    width: 100%;
-    border-radius: 5px;
-    outline: none;
-    display: block;
-    padding: 10px;
-     font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
-      margin: 0 0 16px 0;
-      border: 2px solid #DDE4EE !important;
-      background: #eaeaea;
-      color: #181818;
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: sans-serif;
   }
-  form textarea {
-    display: block;
-    width: 100%;
-    margin: 0 0 20px 0;
-    padding: 18px 15px 15px 18px;
-    resize: none;
+  
+  input,
+  select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
     font-size: 16px;
-    background: 0 none;
-    border: 1px solid #00182E;
-    color:#A5A5A5;
-    outline: none;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+    background-color: #008CBA;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #00688B;
+  }
+  
+  label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  #sub_select_container {
+    margin-top: 20px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    input,
+    select {
+      width: calc(50% - 10px);
+    }
+  
+    #sub_select_container {
+      width: 100%;
+    }
+  
+    input[type="file"] {
+      width: 100%;
+    }
   }
 
 .sidebar_wrapper input {

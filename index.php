@@ -195,7 +195,7 @@ while($rows=mysqli_fetch_assoc($result)){
             </ul>
 
             <div class="form_contact_section">
-                <form action="store_data.php">
+                <form id="contact_form" action="store_data.php" name="form" method="post" >
 
                 <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Your Name" id="username" name="name" autocomplete="on">

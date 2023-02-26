@@ -9,16 +9,20 @@ if (isset($_POST['submit'])) {
     $phonenumber = $_POST['phone'];
     $message = $_POST['message'];
 
-    $query = mysqli_query($conn, "INSERT INTO contact_form(fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
+    $query = mysqli_query($conn, "INSERT INTO contact_form (fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
+   
+    echo 'success';
 }
 
 if (isset($_POST['submit_index'])) {
-    
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phonenumber = $_POST['phone'];
     $message = $_POST['message'];
 
     $query_form = mysqli_query($conn, "INSERT INTO contact_form_index (fl_name,Email,Phone,Messages) VALUES ('$name', '$email', '$phonenumber', '$message')");
+
+    echo 'success';
 }
 ?>
